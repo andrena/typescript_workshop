@@ -11,14 +11,15 @@ type ProductCodeV3 = `${ProductTypeV3}-${number}`
 type ProductTypeV3 = 'Book' | 'AudioBook' | 'Movie'
 
 // Teil 1 (Teil 2 weiter unten):
+// Da man aus dem ProductCode den Produkttyp bestimmen kann, möchten wir das auch in der Typisierung können.
 // Schreibe einen generischen Typ, der, gegeben einen ProductCode, daraus den zugehörigen ProductType bestimmt
 
-type TypeFromCode<T extends ProductCodeV3> = any
+type ExtractCode<T extends ProductCodeV3> = any
 
 type cases = [
-    Expect<Equal<TypeFromCode<'Book-325'>, 'Book'>>,
-    Expect<Equal<TypeFromCode<'Movie-53445'>, 'Movie'>>,
-    Expect<Equal<TypeFromCode<'AudioBook-23123'>, 'AudioBook'>>,
+    Expect<Equal<ExtractCode<'Book-325'>, 'Book'>>,
+    Expect<Equal<ExtractCode<'Movie-53445'>, 'Movie'>>,
+    Expect<Equal<ExtractCode<'AudioBook-23123'>, 'AudioBook'>>,
 ]
 
 // Teil 2: Passe die Signatur dieser Methode so an, dass sie TypeFromCode verwendet.

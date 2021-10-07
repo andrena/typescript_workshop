@@ -1,11 +1,10 @@
-import {Equal, Expect} from '@type-challenges/utils'
-
-type Point2D = [number, number, string]
+import { Equal, Expect } from '@type-challenges/utils'
 
 // Teil 1 (Teil 2 weiter unten)
-// Wir brauchen ein Tupel für einen 2D-Punkt. Zusätzlich zu den drei Koordinaten soll darin auch noch die Farbe
-// des Punktes enthalten sein.
+// Wir brauchen ein Tupel für einen 2D-Punkt. Zusätzlich zu den zwei Koordinaten (jeweils number) soll darin auch
+// noch die Farbe (als string) des Punktes enthalten sein.
 
+type Point2D = [number, number, string]
 type cases = [
     Expect<Equal<Point2D[0], number>>,
     Expect<Equal<Point2D[1], number>>,
@@ -17,34 +16,33 @@ declare const point3d: Point2D
 const invalid = point3d[3]
 
 // Teil 2
-// Wir wollen einen generischen Shape-Typ definieren. Dieser enthält, je nachdem, ob es ein Dreieck, Viereckt oder Fünfeck ist,
-// die entsprechende Anzahl an 2D-Punkten sowie den Typen selbst.
+// Wir wollen einen Typen Tuple<N extends number> anlegen, der, gegeben eine Zahl N >= 0 (davon darf ausgegangen werden),
+// ein N-Tupel von Point2D anlegt
 
-type Shape<T extends 'triangle' | 'quadrangle' | 'pentagon'> = {
-    type: T,
-    points: T extends 'triangle'
-        ? [Point2D, Point2D, Point2D]
-        : T extends 'quadrangle'
-            ? [Point2D, Point2D, Point2D, Point2D]
-            : T extends 'pentagon'
-                ? [Point2D, Point2D, Point2D, Point2D, Point2D]
-                : never
+type Tuple<N extends number, TYPE, T extends TYPE[] = []> = T["length"] extends N ? T : Tuple<N, TYPE, [TYPE, ...T]>
+
+type testCasesForTuple = [
+    Expect<Equal<Tuple<4, string>, [string, string, string, string]>>,
+    Expect<Equal<Tuple<2, Point2D>, [Point2D, Point2D]>>,
+    Expect<Equal<Tuple<0, number>, []>>
+]
+
+// Teil 3
+// Nun wollen wir das N-Tuple verwenden, um einen Typen Polygon<N extends number> zu definieren, der die aufspannenden
+// Punkte sowie den automatisch passenden Namen enthält
+
+type Polygon<N extends number> = {
+    name: `${N}-sided polygon`,
+    points: Tuple<N, Point2D>
 }
 
-type cases2 = [
-    Expect<Equal<Shape<'triangle'>, {
-        type: 'triangle',
-        points: [Point2D, Point2D, Point2D]
+type testCasesForPolygon = [
+    Expect<Equal<Polygon<5>, {
+        name: '5-sided polygon',
+        points: [Point2D, Point2D, Point2D, Point2D, Point2D]
     }>>,
-    Expect<Equal<Shape<'triangle'>, {
-        type: 'triangle',
-        points: [Point2D, Point2D, Point2D]
-    }>>,
-    Expect<Equal<Shape<'triangle'>, {
-        type: 'triangle',
+    Expect<Equal<Polygon<3>, {
+        name: '3-sided polygon',
         points: [Point2D, Point2D, Point2D]
     }>>
 ]
-
-// @ts-expect-error
-type invalidShape = Shape<'hexagon'>

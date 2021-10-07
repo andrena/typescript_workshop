@@ -5,8 +5,9 @@ type MockFunction<T extends (...args: any) => any> = {
     mockReturnValue<G>(this: G, value: T): G
 }
 
-// Wir haben bereits einen generischen Typ für eine Mock-Funktion.
-// Nun brauchen wir noch einen Typen für ein MockObject, der, gegeben ein Object, ein Object zurückgibt,
+// Wir haben bereits einen generischen Typen für eine Mock-Funktion (ist F eine Funktion, liefert MockFunction<F> den
+// Typen für den Mock).
+// Nun brauchen wir noch einen Typen für ein MockObject, der, gegeben ein Object, einen Typen zurückgibt,
 // in dem sämtliche Funktionen durch Mocks ersetzt wurden.
 // Hinweis: Wir betrachten hier nur die erste Ebene, machen also keinen Deep-Mock
 

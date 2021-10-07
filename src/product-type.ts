@@ -9,6 +9,7 @@ type Product = {
 
 declare let product: Product
 
+// Test cases
 product.type = 'Book'
 product.type = 'AudioBook'
 product.type = 'Movie'

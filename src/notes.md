@@ -1,10 +1,11 @@
 Topics:
 - Literal Types
+  - Hello World
 - Union Types
 - Intersection Types
 - Tuples
 - Inferred Types
-- Generic Types
+- Generic Types inkl. Defaults
 - Utility Types
 - never, any, unknown
 

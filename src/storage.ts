@@ -1,13 +1,12 @@
 import {Equal, Expect} from '@type-challenges/utils'
 
-type StoredType = 'Box' | 'Container' | 'Barrel' | 'Bag'
-
-type StorageCount = {}
-
 // Teil 1 (Teil 2 weiter unten)
-// Wir hätten gerne einen Typ, der für jeden der StoredTypes die Anzahl beinhaltet (siehe Testfall unten).
+// Wir hätten gerne einen Typ, der für jeden der StoredTypes die Anzahl beinhaltet, die wir auf Lager haben (siehe Testfall unten).
 // Passe dazu den Typ StorageCount an und setze dies möglicht elegant um, sodass der Typ bei einer Erweiterung
 // der StoredTypes auch automatisch erweitert wird.
+
+type StoredType = 'Box' | 'Container' | 'Barrel' | 'Bag'
+type StorageCount = {}
 
 type cases = [
     Expect<Equal<StorageCount, {
@@ -19,7 +18,8 @@ type cases = [
 ]
 
 // Teil 2
-// Schreibe nun eine generische Klasse, die für einen Übergebenen Typen einen passenden Storage Count wie oben anlegt.
+// Nun wollen wir das verallgemeinern:
+// Schreibe eine generische Klasse, die für einen Übergebenen Typen (strings oder numbers) einen passenden Storage Count wie oben anlegt.
 
 type Count<T> = any
 

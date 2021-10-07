@@ -1,14 +1,16 @@
 // Literal
 
+import { Equal, Expect } from "@type-challenges/utils"
+
 type HelloWorld = any
 
-// type cases = [
-//     Expect<Equal<HelloWorld, 'Hello World'>>
-// ]
+type cases = [
+    Expect<Equal<HelloWorld, 'Hello World'>>
+]
 
 let helloWorld: HelloWorld
 
-// d@ts-expect-error
+// @ts-expect-error
 helloWorld = 45
 
 // ###################################

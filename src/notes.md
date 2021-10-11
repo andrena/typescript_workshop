@@ -1,11 +1,15 @@
 Topics:
 - Literal Types
   - Hello World
+  - Gambling
 - Union Types
+  - Gambling
 - Intersection Types
+  - Gambling
 - Tuples
 - Inferred Types
 - Generic Types inkl. Defaults
+  - Gambling
 - Utility Types
 - never, any, unknown
 

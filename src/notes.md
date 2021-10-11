@@ -4,6 +4,7 @@ Topics:
   - Gambling
 - Union Types
   - Gambling
+  - Bank Account
 - Intersection Types
   - Gambling
 - Tuples

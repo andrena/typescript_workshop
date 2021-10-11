@@ -1,7 +1,8 @@
 // BankAccount ist entweder ein Object mit einer ID und einer disabled-Flag oder (wenn der Kunde noch keine
-// Bankverbindung angegeben hat) false
+// Bankverbindung angegeben hat) false (siehe Testfälle unten)
 // Definiere den Typen korrekt, sodass unten in den Test Cases keine Typ-Fehler mehr vorkommen
-type BankAccount = any
+
+type BankAccount = { id: string, disabled: boolean } | false
 
 type ShopUser = {
     name: string

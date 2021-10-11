@@ -16,8 +16,8 @@ declare const point3d: Point2D
 const invalid = point3d[3]
 
 // Teil 2
-// Wir wollen einen Typen Tuple<N extends number> anlegen, der, gegeben eine Zahl N >= 0 (davon darf ausgegangen werden),
-// ein N-Tupel von Point2D anlegt
+// Wir wollen einen Typen Tuple<N extends number, T> anlegen, der, gegeben eine Zahl N >= 0 (davon darf ausgegangen werden),
+// ein N-Tupel von Typ T anlegt (siehe Testfälle).
 
 type Tuple<N extends number, TYPE, T extends TYPE[] = []> = T["length"] extends N ? T : Tuple<N, TYPE, [TYPE, ...T]>
 

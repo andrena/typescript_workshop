@@ -1,4 +1,4 @@
-import {Equal, Expect} from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils'
 
 type MockFunctionV2<T extends (...args: any) => any> = {
     (): T,
@@ -9,7 +9,9 @@ type MockFunctionV2<T extends (...args: any) => any> = {
 // Hinweis: Wir kümmern uns nicht um spezielle Typen wie z.B. Date. Man darf davon ausgehen, dass wir nur Objekte mocken,
 // die aus beliebig tief verschachtelten Primitives und Funktionen bestehen
 
-type MockObjectV2<T> = any
+type MockObjectV2<T> = {
+    [k in keyof T]: T[k] extends (...args: any) => any ? MockFunctionV2<T[k]> : T[k] extends {} ? MockObjectV2<T[k]> : T[k]
+}
 
 // Test Cases
 type LanguageV2 = 'en' | 'de'

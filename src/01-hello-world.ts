@@ -8,7 +8,7 @@ Teil 1:
   zulässt.
  */
 
-type HelloWorld = any
+type HelloWorld = 'Hello World'
 
 type casesForHelloWorld = [
     Expect<Equal<HelloWorld, 'Hello World'>>
@@ -27,7 +27,7 @@ Teil 2:
   dürfen beliebige weitere Zeichen folgen.
  */
 
-type HelloSomething = any
+type HelloSomething = `Hello${string}`
 
 let helloSomething: HelloSomething
 helloSomething = 'Hello World'
@@ -51,7 +51,7 @@ Teil 3:
 
 type Customer = 'Jaqueline' | 'Jeremy' | 'Chantal' | 'Kevin'
 
-type HelloCustomer = any
+type HelloCustomer = `Hello ${Customer}`
 
 let helloCustomer: HelloCustomer
 helloCustomer = 'Hello Chantal'

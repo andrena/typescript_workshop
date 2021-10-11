@@ -10,10 +10,10 @@ type Customer = {
 declare const checkStatus: (customer: Customer) => 'approved' | 'pending'
 declare const generateGreeting: (person: Person) => string
 
-// Passe den Typen des Parameters dieser Funktion so an, dass sämtliche Relevanten informationen vorliegen und
-// weiter unten kein Type-Fehler auftritt
+// Passe den Typen des Parameters dieser Funktion so an, dass sämtliche relevanten Informationen (von Person und
+// Customer) vorliegen und weiter unten keine Typ-Fehler auftreten
 
-function checkCustomer(customer: any) {
+function checkCustomer(customer: Person & Customer) {
     if (checkStatus(customer) === 'approved') {
         return generateGreeting(customer)
     }

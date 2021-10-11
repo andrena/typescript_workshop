@@ -4,7 +4,7 @@
 
 type Product = {
     code: string,
-    type: string
+    type: 'Book' | 'AudioBook' | 'Movie'
 }
 
 declare let product: Product

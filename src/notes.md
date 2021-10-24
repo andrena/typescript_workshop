@@ -8,11 +8,16 @@ Topics:
 - Intersection Types
   - Gambling
 - Tuples
+  - Tupel
 - Inferred Types
+  - ProductTypeV3
 - Generic Types inkl. Defaults
   - Gambling
 - Utility Types
+  - Utility
 - never, any, unknown
+- (Type Guards)
+- keyof, typeof
 
 TODO:
 - [ ] Create interesting exercises

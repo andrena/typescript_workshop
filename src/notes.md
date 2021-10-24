@@ -8,10 +8,10 @@ Topics:
 - Intersection Types
   - Gambling
 - Tuples
-  - Tupel
+  - Tuple
 - Inferred Types
   - ProductTypeV3
-- Generic Types inkl. Defaults
+- Generic Types incl. Defaults
   - Gambling
 - Utility Types
   - Utility
@@ -26,3 +26,22 @@ TODO:
 - [ ] Sort topics and exercises
 - [ ] Create branch with solutions
 - [ ] Choose interesting typeChallenges
+
+Demo:
+- First Part
+  - Basic notation, show type errors in IDE
+    - Online compile time, no runtime! 
+    - Interface vs. Type
+    - keyof, typeof (difference to typeof in JS!)
+    - Types of Properties
+    - never, any, unknown
+    - Type assertions (as), Non-null assertion (!)
+  - Literal Types
+  - Union Types, Intersection Types
+  - Type Guards
+- Second Part
+  - Utility Types
+  - Generic Types
+  - Indexed Types
+  - Inferred types
+  - Recursive Types

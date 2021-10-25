@@ -9,7 +9,7 @@ type ChatMessageStatus = 'submitted' | 'received' | 'read'
 // Verwende einen Utility Type, um den Typ ChatMessageStatusOnReceiver zu definieren, welcher alle Status
 // von ChatMessageStatus außer 'submitted' beinhaltet.
 
-type ChatMessageStatusOnReceiver = Exclude<ChatMessageStatus, 'submitted'>
+type ChatMessageStatusOnReceiver = any
 
 type ChatMessage = {
     author: string,
@@ -28,7 +28,7 @@ type testCase1 = Expect<Equal<ChatMessageStatusOnReceiver, 'received' | 'read'>>
 // Definiere den Typen ChatMessagePost mithilfe von Utility Types so, dass er auf ChatMessage aufbaut aber lediglich
 // die Properties 'subject' und 'message' übernimmt
 
-type ChatMessagePost = Pick<ChatMessage, 'subject' | 'message'>
+type ChatMessagePost = any
 
 type testCase2 = Expect<Equal<ChatMessagePost, {
     subject: string,
@@ -39,7 +39,7 @@ type testCase2 = Expect<Equal<ChatMessagePost, {
 // Wir wollen einen Export der Nachrichten für unser Analyse-Tool schreiben. Dazu müssen die Nachrichten allerdings
 // anonymisiert werden (= wir entfernen den 'author').
 // Definiere mit Utility Types den Typen AnonymizedChatMessage, der alle Properties von ChatMessage außer 'author' kopiert.
-type AnonymizedChatMessage = Omit<ChatMessage, 'author'>
+type AnonymizedChatMessage = any
 
 type testCase3 = Expect<Equal<AnonymizedChatMessage, {
     createdAt: Date,

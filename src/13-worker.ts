@@ -12,6 +12,7 @@ import { Equal, Expect } from "@type-challenges/utils";
     a. Erstellt dazu erst einen generischen Typen Decrement<N extends number>, der einen literal number Type annimmt
        und den um eins verringerten Literal Type zurückgibt
        Man darf davon ausgehen, dass N hier immer eine ganze Zahl >= 1 ist
+       Hinweis: Vielleicht hilft es hier, noch einen weiteren generischen Parameter (mit Default Wert) hinzuzufügen.
     b. Erstellt den generischen Typen NumberRangeFromOne<N extends number> unter Verwendung von Decrement<N extends number>
        Man darf annehmen, dass N >= 0 ist. Bei N = 0 wird never zurückgegeben
  3. Verwendet die angelegten Typen, um nun den generischen Typen MyWorker<STEPS extends WorkingStep[]> anzupassen.

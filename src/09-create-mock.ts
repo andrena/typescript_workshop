@@ -11,9 +11,7 @@ type MockFunction<T extends (...args: any) => any> = {
 // in dem sämtliche Funktionen durch Mocks ersetzt wurden.
 // Hinweis: Wir betrachten hier nur die erste Ebene, machen also keinen Deep-Mock
 
-type MockObject<T> = {
-    [k in keyof T]: T[k] extends (...args: any[]) => any ? MockFunction<T[k]> : T[k]
-}
+type MockObject<T> = any
 
 // Test Cases
 type Language = 'en' | 'de'

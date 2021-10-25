@@ -38,7 +38,7 @@ import { Equal, Expect } from "@type-challenges/utils";
 type WorkingStep = string
 
 ///////// 1. Length /////////
-type Length<A extends any[]> = A['length']
+type Length<A extends any[]> = any
 
 type testCasesForLength = [
     Expect<Equal<Length<[]>, 0>>,
@@ -47,7 +47,7 @@ type testCasesForLength = [
 ]
 
 ///////// 2.a Decrement /////////
-type Decrement<N extends number, T extends any[] = []> = [any, ...T] extends { length: N } ? (T extends { length: infer M } ? M : never) : Decrement<N, [any, ...T]>
+type Decrement<N extends number> = any
 
 type testCasesForDecrement = [
     Expect<Equal<Decrement<1>, 0>>,
@@ -57,7 +57,7 @@ type testCasesForDecrement = [
 ]
 
 ///////// 2.b NumberRangeFromOne /////////
-type NumberRangeFromOne<N extends number> = N extends 0 ? never : NumberRangeFromOne<Decrement<N>> | N
+type NumberRangeFromOne<N extends number> = any
 
 type testCasesForRangeFromOne = [
     Expect<Equal<NumberRangeFromOne<0>, never>>,
@@ -70,13 +70,7 @@ type testCasesForRangeFromOne = [
 ///////// 3. Worker /////////
 
 // MyWorker soll angepasst werden
-type MyWorker<STEPS extends WorkingStep[]> = STEPS["length"] extends 0 ? {
-    totalSteps: 0
-    currentStep: never
-} : {
-    totalSteps: Length<STEPS>,
-    currentStep: NumberRangeFromOne<Length<STEPS>>
-}
+type MyWorker<STEPS extends WorkingStep[]> = any
 
 
 declare const processingWorker: MyWorker<['init', 'read', 'process', 'validate', 'save', 'clean']>
@@ -92,7 +86,7 @@ type testCasesForWorker = [
 ]
 
 ///////// 4.a NumberRange /////////
-type NumberRange<M extends number, N extends number> = Exclude<NumberRangeFromOne<N>, NumberRangeFromOne<M>>
+type NumberRange<M extends number, N extends number> = any
 
 type testCasesForNumberRange = [
     Expect<Equal<NumberRange<0, 0>, never>>,
@@ -104,15 +98,7 @@ type testCasesForNumberRange = [
 ]
 
 ///////// 4.b PartialWorker /////////
-type PartialWorker<STEPS extends WorkingStep[],
-    START extends NumberRangeFromOne<END> | 0 = 0,
-    END extends NumberRangeFromOne<Length<STEPS>> | Length<STEPS> = Length<STEPS>> = STEPS["length"] extends 0 ? {
-    totalSteps: 0,
-    currentStep: never
-} : {
-    totalSteps: Length<STEPS>,
-    currentStep: NumberRange<START, END>
-}
+type PartialWorker<STEPS extends WorkingStep[], START, END> = any
 
 declare const partialProcessingWorker: PartialWorker<['init', 'read', 'process', 'validate', 'save', 'clean'], 2, 4>
 declare const partialNoEndProcessingWorker: PartialWorker<['init', 'read', 'process', 'validate', 'save', 'clean'], 2>

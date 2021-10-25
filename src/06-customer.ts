@@ -13,7 +13,7 @@ declare const generateGreeting: (person: Person) => string
 // Passe den Typen des Parameters dieser Funktion so an, dass sämtliche relevanten Informationen (von Person und
 // Customer) vorliegen und weiter unten keine Typ-Fehler auftreten
 
-function checkCustomer(customer: Person & Customer) {
+function checkCustomer(customer: any) {
     if (checkStatus(customer) === 'approved') {
         return generateGreeting(customer)
     }

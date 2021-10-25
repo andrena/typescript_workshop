@@ -3,8 +3,8 @@ type ProductV2 = {
     type: ProductTypeV2
 }
 
-type ProductCodeV2 = `${ProductTypeV2}-${number}`
 type ProductTypeV2 = 'Book' | 'AudioBook' | 'Movie'
+type ProductCodeV2 = any
 
 // Die Produktcodes setzen sich immer nach dem Schema "${Typ}-${irgendeineZahl}" zusammen.
 // Stelle durch eine korrekte Typdefinition von ProductCodeV2 sicher, dass das immer der Fall ist.

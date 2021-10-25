@@ -4,7 +4,7 @@ import { Equal, Expect } from '@type-challenges/utils'
 // Wir brauchen ein Tupel für einen 2D-Punkt. Zusätzlich zu den zwei Koordinaten (jeweils number) soll darin auch
 // noch die Farbe (als string) des Punktes enthalten sein.
 
-type Point2D = [number, number, string]
+type Point2D = any
 type cases = [
     Expect<Equal<Point2D[0], number>>,
     Expect<Equal<Point2D[1], number>>,
@@ -19,7 +19,7 @@ const invalid = point3d[3]
 // Wir wollen einen Typen Tuple<N extends number, T> anlegen, der, gegeben eine Zahl N >= 0 (davon darf ausgegangen werden),
 // ein N-Tupel von Typ T anlegt (siehe Testfälle).
 
-type Tuple<N extends number, TYPE, T extends TYPE[] = []> = T["length"] extends N ? T : Tuple<N, TYPE, [TYPE, ...T]>
+type Tuple<N extends number, TYPE> = any
 
 type testCasesForTuple = [
     Expect<Equal<Tuple<4, string>, [string, string, string, string]>>,
@@ -31,10 +31,7 @@ type testCasesForTuple = [
 // Nun wollen wir das N-Tuple verwenden, um einen Typen Polygon<N extends number> zu definieren, der die aufspannenden
 // Punkte sowie den automatisch passenden Namen enthält
 
-type Polygon<N extends number> = {
-    name: `${N}-sided polygon`,
-    points: Tuple<N, Point2D>
-}
+type Polygon<N extends number> = any
 
 type testCasesForPolygon = [
     Expect<Equal<Polygon<5>, {

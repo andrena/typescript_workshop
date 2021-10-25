@@ -2,7 +2,7 @@
 // Bankverbindung angegeben hat) false (siehe Testfälle unten)
 // Definiere den Typen korrekt, sodass unten in den Test Cases keine Typ-Fehler mehr vorkommen
 
-type BankAccount = { id: string, disabled: boolean } | false
+type BankAccount = any
 
 type ShopUser = {
     name: string

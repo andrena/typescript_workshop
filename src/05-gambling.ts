@@ -3,7 +3,7 @@ Teil 1:
   Definiere den Typen für eine Münze. Diese kann entweder den String "Head" oder den String "Tails" haben.
  */
 
-type Coin = 'Head' | 'Tails'
+type Coin = any
 
 let coin: Coin
 coin = 'Head'
@@ -18,7 +18,7 @@ Teil 2
   Definiere den Typen für einen Würfel. Dieser kann jede Augenzahl beinhalten.
  */
 
-type Die = 1 | 2 | 3 | 4 | 5 | 6
+type Die = any
 
 let die: Die
 die = 1
@@ -42,7 +42,7 @@ Teil 3
  */
 
 type SpecialDie = 1 | 3 | 5 | 6 | 8 | 10
-type PossiblePairsWithNormalAndSpecial = SpecialDie & Die
+type PossiblePairsWithNormalAndSpecial = any
 
 let specialDie: SpecialDie
 let possiblePairs: PossiblePairsWithNormalAndSpecial
@@ -77,7 +77,7 @@ Teil 4
   möglichen Paare zurückgibt.
  */
 
-type PossiblePairs<S, T> = S & T
+type PossiblePairs<S, T> = any
 
 let possiblePairs2: PossiblePairs<Die, SpecialDie>
 possiblePairs2 = 1
@@ -117,7 +117,7 @@ type CardValue =
     | 'Queen'
     | 'King'
 
-type Card = `${CardValue} of ${CardColor}`
+type Card = any
 
 let card: Card
 card = "Five of Club"

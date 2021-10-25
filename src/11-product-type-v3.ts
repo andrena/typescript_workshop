@@ -12,7 +12,7 @@ type ProductTypeV3 = 'Book' | 'AudioBook' | 'Movie'
 // Da man aus dem ProductCode den Produkttyp bestimmen kann, möchten wir das auch in der Typisierung können.
 // Schreibe einen generischen Typ, der, gegeben einen ProductCode, daraus den zugehörigen ProductType bestimmt
 
-type ExtractCode<T extends ProductCodeV3> = T extends `${infer TYPE}-${number}` ? TYPE : never
+type ExtractCode<T extends ProductCodeV3> = any
 
 type cases = [
     Expect<Equal<ExtractCode<'Book-325'>, 'Book'>>,
@@ -23,7 +23,7 @@ type cases = [
 // Teil 2: Passe die Signatur dieser Methode so an, dass sie TypeFromCode verwendet.
 // Hinweis: Dazu muss die Methode auch generisch werden
 
-declare const extractType: <T extends ProductCodeV3>(code: T) => ExtractCode<T>
+declare const extractType: (code: any) => any
 
 const book = extractType('Book-3234')
 const movie = extractType('Movie-892')

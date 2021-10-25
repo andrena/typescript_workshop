@@ -29,26 +29,5 @@ type GeographicalEntity = Continent | Country | Language
 
 
 function getDisplayName(value: GeographicalEntity): string {
-    if (isContinent(value)) {
-        return value.name
-    }
-    if (isCountry(value)) {
-        return value.normalizedName
-    }
-    if (isLanguage(value)) {
-        return value.nativeName
-    }
-    throw 'Invalid type provided'
-}
-
-function isContinent(value: GeographicalEntity): value is Continent {
-    return (value as Continent).iso !== undefined
-}
-
-function isCountry(value: GeographicalEntity): value is Country {
-    return (value as Country).normalizedName !== undefined
-}
-
-function isLanguage(value: GeographicalEntity): value is Language {
-    return (value as Language).nativeName !== undefined
+    return ''
 }

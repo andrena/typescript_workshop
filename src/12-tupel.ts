@@ -18,6 +18,7 @@ const invalid = point3d[3]
 // Teil 2
 // Wir wollen einen Typen Tuple<N extends number, T> anlegen, der, gegeben eine Zahl N >= 0 (davon darf ausgegangen werden),
 // ein N-Tupel von Typ T anlegt (siehe Testfälle).
+// Hinweis: Vielleicht hilft es hier, noch einen dritten generischen Parameter (mit Defaultwert) anzulegen
 
 type Tuple<N extends number, TYPE> = any
 

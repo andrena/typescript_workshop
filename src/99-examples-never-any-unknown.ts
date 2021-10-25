@@ -22,7 +22,7 @@ let resolvingPromise = new Promise<string>((resolve) => {
 let neverResolvingPromise = new Promise<never>((resolve) => {
 })
 
-function allwaysThrowError(): never {
+function alwaysThrowError(): never {
     throw new Error('Error')
 }
 
